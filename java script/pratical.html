@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increase Text Size</title>
+    <style>
+        #text {
+            font-size: 16px; /* Initial font size */
+        }
+    </style>
+</head>
+<body>
+    <p id="text">This is some sample text.</p>
+    <button onclick="increaseTextSize()">Increase Text Size</button>
+
+    <script>
+        let currentFontSize = 16; // Initial font size in pixels
+
+        function increaseTextSize() {
+            currentFontSize += 2; // Increase font size by 2 pixels
+            document.getElementById('text').style.fontSize = currentFontSize + 'px';
+        }
+    </script>
+</body>
+</html>

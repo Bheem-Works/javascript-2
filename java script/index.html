@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1> javascrit day 01 
+
+    </h1>
+    <script src="day.js"></script>
+    <!-- <button type="button"
+    onclick="document.getElementById('demo').innerHTML = Date()">
+    Click me to display Date and Time.</button>
+    
+    <p id="demo"></p> -->
+    <p id="name">you can change name by clicking button</p>
+    <!--<button type="button" onclick='document.getElementById("name").innerHTML = "Hello JavaScript!"'>Click Me!</button>
+--->
+<p id="text">lets change name </p>
+<button onclick='document.getElementById("text").innerHTML = "Hello my name spck..."'>text</button>
+<h1>time change</h1>
+<p id="time">you can see time </p>
+<button onclick="document.getElementById('time').innerHTML = Date()">Time show</button>
+
+
+
+<p id="font">This is some sample text.</p>
+<button onclick="increaseTextSize()">Increase Text Size</button>
+
+<script>
+    let currentFontSize = 16; // Initial font size in pixels
+
+    function increaseTextSize() {
+        currentFontSize += 2; // Increase font size by 2 pixels
+        document.getElementById('font').style.fontSize = currentFontSize + 'px';
+    }
+</script>
+</html>
