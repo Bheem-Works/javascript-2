@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline Theme Switcher</title>
+    <style id="theme-stylesheet">
+        /* Default Light Theme */
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        button {
+            background-color: #ddd;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ccc;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome!</h1>
+        <p>Click the button below to switch themes.</p>
+        <button id="theme-toggle">Switch to Dark Theme</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.getElementById('theme-toggle');
+            const themeStylesheet = document.getElementById('theme-stylesheet');
+
+            // Check for saved theme preference in local storage
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                applyDarkTheme();
+            }
+
+            // Toggle theme on button click
+            toggleButton.addEventListener('click', () => {
+                if (themeStylesheet.innerHTML.includes('background-color: #f0f0f0')) {
+                    applyDarkTheme();
+                } else {
+                    applyLightTheme();
+                }
+            });
+
+            function applyDarkTheme() {
+                themeStylesheet.innerHTML = `
+                    body {
+                        background-color: #1a1a1a;
+                        color: #f0f0f0;
+                        transition: background-color 0.5s ease, color 0.5s ease;
+                    }
+
+                    button {
+                        background-color: #333;
+                        color: #f0f0f0;
+                        border: none;
+                        padding: 10px 20px;
+                        font-size: 16px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                    }
+
+                    button:hover {
+                        background-color: #444;
+                    }
+
+                    .container {
+                        text-align: center;
+                        padding: 50px;
+                    }
+                `;
+                localStorage.setItem('theme', 'dark');
+                toggleButton.textContent = 'Switch to Light Theme';
+            }
+
+            function applyLightTheme() {
+                themeStylesheet.innerHTML = `
+                    body {
+                        background-color: #f0f0f0;
+                        color: #333;
+                        transition: background-color 0.5s ease, color 0.5s ease;
+                    }
+
+                    button {
+                        background-color: #ddd;
+                        color: #333;
+                        border: none;
+                        padding: 10px 20px;
+                        font-size: 16px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                    }
+
+                    button:hover {
+                        background-color: #ccc;
+                    }
+
+                    .container {
+                        text-align: center;
+                        padding: 50px;
+                    }
+                `;
+                localStorage.setItem('theme', 'light');
+                toggleButton.textContent = 'Switch to Dark Theme';
+            }
+        });
+    </script>
+</body>
+</html>
